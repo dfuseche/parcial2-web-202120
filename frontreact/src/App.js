@@ -10,29 +10,18 @@ import messages from './i18n/messages';
 
 function App() {
   const [searchState, setSearchState] = useState({ searchKey: '' });
-  let ln = window.navigator.language.substring(0,2);
-  
-
-  let localeMes;
-
-  if(ln === 'en')
-  {
-      localeMes = LOCALES.SPANISH
-  }
-  else if(ln === 'es')
-  {
-      localeMes = LOCALES.ENGLISH
-  }
-  const [language, setLanguage] = useState(localeMes);
+  const [language, setLanguage] = useState(LOCALES.SPANISH);
 
   const setSearchkey = (query) => {
+    console.log(query)
     setSearchState({ searchKey: query });
   };
+  
 
   return (
     <IntlProvider locale={language} messages={messages[language]}>
       <header>
-        <NavBar onSearchKeyChange={setSearchkey} />
+        <NavBar onSearchKeyChange={setSearchkey} setIdioma={setLanguage} />
       </header>
       <main>
         <Routes>

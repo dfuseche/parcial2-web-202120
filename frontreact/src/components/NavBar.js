@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
 import { I18nSelect } from './I18nSelect';
 
-export const NavBar = ({ onSearchKeyChange, setLanguage }) => {
+export const NavBar = ({ onSearchKeyChange, setIdioma }) => {
   const [navState, setNavState] = useState({ showingSearch: false });
-
+  
   const showSearchContainer = (event) => {
     event.preventDefault();
     setNavState({ showingSearch: !navState.showingSearch });
@@ -29,7 +29,7 @@ export const NavBar = ({ onSearchKeyChange, setLanguage }) => {
               <span onClick={(e) => showSearchContainer(e)}>
                 <i className='material-icons search'>search</i>
               </span>
-              <I18nSelect></I18nSelect>
+              <I18nSelect setIdioma ={setIdioma} ></I18nSelect>
             </div>
           </nav>
         </div>

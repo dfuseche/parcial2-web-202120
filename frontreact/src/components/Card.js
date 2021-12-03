@@ -7,11 +7,11 @@ import React from 'react';
  */
 export const Card = (props) => {
   const { name, picture, price, isActive } = props;
-  
+
 
   return (
     <div>
-      <div className={isActive ? "card text-black bg-white mb-3": "card text-white bg-dark mb-3" }>
+      <div className={isActive=="true" ? "card": "card inactive" }>
         <p className='card-title'>{name}</p>
         <span className='material-icons card-favorite'>favorite_border</span>
       </div>
